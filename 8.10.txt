@@ -1,0 +1,58 @@
+结构体
+
+结构体的定义
+struct point {
+	int x, y;
+} p[1010];
+
+struct student {
+	int id;
+	char sex; // M男 F女
+	int chi, math, eng;
+	double avg; //平均分
+};
+
+student p[1010];
+
+struct 结构体名 {
+	变量1;
+	变量2;
+} Jerry, Tom, John, Mary;
+
+结构体里可以用多个不同类型的变量（也可以是数组类型）
+
+访问结构体成员
+p[1].id //第一个学生的id
+p[3].avg //第3个学生的平均分
+
+结构体可以作为函数参数，也可以作为函数返回值
+
+结构体初始化
+student Tom = {,, , }; //大括号，里面用逗号隔开
+
+排序：sort函数
+需要algorithm库
+默认从小到大排序
+对a[0],a[1],a[2],a[3],...,a[n-1]排序
+sort(a, a + n);
+对a[1],a[2],a[3],...,a[n]排序
+sort(a + 1, a + 1 + n);
+对a[3],a[4],a[5]排序，其它不动
+sort(a + 3, a + 6);
+
+自定义比较函数
+bool cmp(int x, int y) { //从大到小排序
+	return x > y;
+}
+//注意 cmp(x, x) 必须要返回false 否则会出问题
+sort(a + 1, a + 1 + n, cmp);
+可以对结构体数组进行排序
+
+例题：P1465 P1290
+
+可以在结构体里定义函数
+
+快捷键小贴士：
+CTRL + / 注释/取消注释
+多行缩进 Tab
+取消缩进 Shift + Tab

@@ -1,0 +1,44 @@
+递归
+函数自己调用自己
+
+顺序输出数组
+void f(int i) { //输出a[i]...a[n]
+	if(i > n) return;
+	cout << a[i] << ' ';
+	f(i + 1);
+}
+f(1);
+
+倒序输出数组
+void f(int i) { //倒序输出a[1]...a[i]
+	if(i == 0) return;
+	cout << a[i] << ' ';
+	f(i - 1);
+}
+f(n)
+
+注意设定结束的条件，避免无限递归
+
+int f(int x) { //计算 x + (x - 3) + (x - 6) + ... + 7 + 4 + 1
+	if(x == 1) return 1;
+	int s = f(x - 3);
+	return x + s;
+}
+
+int f(int x) { //返回斐波那契数列的第n项 
+	if(x == 1) return 0;
+	if(x == 2) return 1;
+	return f(x - 2) + f(x - 1);
+}
+
+汉诺塔问题
+过程：
+把1,2盘移到B柱子
+把3移到C柱
+把1盘移到A
+把2移到C柱
+最后把1移到C柱
+思路：
+先把1~n-1号盘子移到B柱暂存
+再把n号盘子移到C柱
+最后把1~n-1号盘子从B柱移到C柱

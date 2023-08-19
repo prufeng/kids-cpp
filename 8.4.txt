@@ -1,0 +1,119 @@
+while循环
+形式：
+while(条件) {
+	语句1;
+	语句2;
+}
+判断条件是否为真，若为真，执行语句1、语句2；
+然后判断条件是否为真，若为真，执行语句1、语句2；
+然后判断条件是否为真，若为假则结束循环
+
+注意要在循环里改变跟循环条件相关的变量，否则可能死循环
+
+例子：
+(1) 输出0,4,8
+int i = 0;
+while(i <= 8) {
+	cout << i << ' ';
+	i += 4;
+}
+(2) n能整除几次2？
+int n;
+cin >> n;
+int cnt = 0;
+while(n % 2 == 0) {
+	n /= 2;
+	cnt++;
+}
+cout << cnt;
+(3) 从低到高倒序输出n的每一位数字
+while(n > 0) {
+	cout << n % 10 << ' ';
+	n /= 10;
+}
+(4) 读入多组a和b，输出a+b
+while(cin >> a >> b) { //只要有输入就一直读入
+	cout << a + b << endl;
+}
+(5) 输出1,2,3,4,..,100
+int i = 1;
+while(i <= 100) {
+	cout << i << endl;
+	i++;
+}
+
+do-while循环
+形式：
+do {
+	语句1;
+	语句2;
+} while(条件);
+
+执行语句1、2，然后判断条件是否为真，
+若为真，执行语句1、2，然后判断条件是否为真
+先执行一遍再判断条件是否满足
+
+while和do-while的区别：
+while是先判断，后执行
+do-while是先执行，再判断
+
+数组
+数组的定义：
+int a[103]; double b[103];
+长度为103的数组，其中的每一个元素是整型
+下标从0开始，一直到长度-1，一共10个元素
+数组一般定义在主函数外
+数组的长度必须是常量，一般开比题目要求大一点的数组
+访问数组中的元素的方法： 数组名[下标]，比如a[1]
+
+例子：
+(1) 输入n个数，请倒序输出它们
+#include <iostream>
+using namespace std;
+int a[1005], n, m, b[3];
+int main() {
+	cin >> n;
+	for(int i = 1; i <= n; i++) { //输入a[1],a[2],...,a[n]
+		cin >> a[i];
+	}
+	for(int i = n; i >= 1; i--) { //输出a[n],a[n-1],...,a[2],a[1]
+		cout << a[i] << ' ';
+	}
+	
+	return 0;
+}
+
+(2) 把数组中的所有数+1
+#include <iostream>
+using namespace std;
+int a[1005], n;
+int main() {
+	cin >> n;
+	for(int i = 1; i <= n; i++) {
+		cin >> a[i];
+	}
+	for(int i = 1; i <= n; i++) {
+		a[i]++;
+	}
+	for(int i = 1; i <= n; i++) {
+		cout << a[i] << ' ';
+	}
+	
+	return 0;
+}
+
+(3) 求数组中所有元素的和
+int sum = 0;
+for(int i = 1; i <= n; i++) {
+	sum += a[i];
+}
+cout << sum;
+
+(4) 求数组中最大的数
+int ans = INT_MIN; //先假设答案是个很小的数
+for(int i = 1; i <= n; i++) {
+	if(ans < a[i]) {
+		ans = a[i];
+	}
+}
+cout << ans;

@@ -1,0 +1,278 @@
+/*
+字符：单个字符  字符串： 单词 
+字符串：多个字符的组合 + 特殊的结尾(\0) 
+
+1. C++中string类型(更适合初学者)
+2. C语言中，字符数组模拟字符串(灵活性比较强，适合于实现较复杂的字符串算法) 
+ 
+
+*/ 
+
+/* 
+#include <iostream>
+
+using namespace std;
+
+string s;//定义一个字符串类型s 
+
+int main()
+{
+	cin>>s;
+	cout<<s<<endl;
+	s="abcdefg"; //字符串用""   单个字符'' 
+	cout<<s<<endl;
+	
+	//字符串长度： s.length(); 
+	//逐个访问字符串中的元素
+	//for(int i=0;i<7;i++)
+	for(int i=0;i<s.length();i++)
+		cout<<s[i]<<" "; 
+	 
+	return 0;
+} */
+
+/*
+s="abcdefg";
+
+
+s[0]  s[1]  s[2]  s[3]  s[4]  s[5]  s[6]
+ a      b     c    d      e     f     g
+ */
+ 
+ 
+ /*
+ 
+//从键盘输入一个字符串，将其中的小写字母转化成大写字母
+
+#include <iostream>
+
+using namespace std;
+
+string s;
+
+int main()
+{
+ 	cin>>s;
+ 	int len=s.length();
+ 	for(int i=0;i<len;i++)
+ 	{
+ 		//检测每一位的字母是否是小写字母
+ 		if(s[i]>='a' && s[i]<='z')
+ 			s[i]+='A' - 'a';
+	}
+	cout<<s<<endl;
+ 	return 0; 
+}*/
+
+
+/*
+#include <iostream>
+
+using namespace std;
+
+//定义两个字符串用于保存给定的时间
+string s1,s2;
+
+int main()
+{
+	cin>>s1>>s2;
+	//将s1 s2中的时 分 秒抽取出来
+	int h1,h2;//小时  对应字符串的0和1的位置 
+	int m1,m2;//分钟  对应字符串的3和4的位置 
+	int c1,c2;//秒    对应字符串的6和7的位置
+	
+	h1=s1[1]-'0' + (s1[0]-'0')*10;
+	h2=s2[1]-'0' + (s2[0]-'0')*10; 
+	
+	m1=s1[4]-'0' + (s1[3]-'0')*10;
+	m2=s2[4]-'0' + (s2[3]-'0')*10;
+	
+	c1=s1[7]-'0' + (s1[6]-'0')*10;
+	c2=s2[7]-'0' + (s2[6]-'0')*10;
+
+	cout<<c1-c2+(m1-m2)*60+(h1-h2)*3600<<endl;
+	return 0;
+}*/
+
+
+/*
+#include <iostream>
+
+using namespace std;
+
+string s;
+
+int main()
+{
+	cin>>s;
+	int sum=0; //存储各个位置上的数字和
+	
+	for(int i=0;i<s.length();i++)
+		sum+=s[i]-'0';
+	cout<<sum<<endl; 
+	return 0;
+}*/
+
+/*
+#include <iostream>
+#include <string>
+using namespace std;
+string a;
+int main()
+{
+	getline(cin,a);
+	for(int i=0;i<a.length();i++)
+	{
+		if(a[i]>='A'&&a[i]<='Z')
+		{
+			int x=a[i]-'A'; //该字母是26个大写字母中的第几个 
+			x=(x-5+26)%26;
+			a[i]=x+'A';
+		}
+	}
+	cout<<a<<endl; 
+	return 0;
+}*/
+
+/*
+//字符串之间可以用大小比较 (字典序)
+
+#include <iostream>
+
+using namespace std;
+
+string s1="fbc";
+string s2="ebd";
+
+int main()
+{
+	cout<< (s1>s2) <<endl;
+	cout<< (s1<s2) <<endl;
+	return 0;
+}*/
+
+
+/*
+//string类型可以做+法操作，拼接 
+#include <iostream>
+
+using namespace std;
+
+string s1="abcde";
+string s2="fgh";
+
+string s3=s1+s2;
+
+int main()
+{
+	s3+='i';
+	cout<<s3<<endl;
+	return 0;
+}*/
+
+/*
+#include <iostream>
+
+using namespace std;
+
+string s="abcettefg";
+
+int main()
+{
+	cout<<s.find('e')<<endl; //找第一个'e'出现的位置
+	cout<<s.find('e',4)<<endl;
+	cout<<int(s.find('h'))<<endl;//如果字符串中没有查找的字母  则返回-1 
+	
+	return 0;
+}*/
+
+/* 
+#include <iostream>
+
+using namespace std;
+
+string s;
+
+int main()
+{
+	cin>>s;
+	int len=s.length()-1;
+	int i=0,j=len-1;
+	//双指针 
+	while(i<j)
+	{
+		if(s[i]!=s[j])
+		{
+			cout<<"FALSE"<<endl;
+			return 0; 
+		}
+		i++;
+		j--;
+	}
+	cout<<"TRUE"<<endl;
+	return 0;
+}*/
+
+
+//string类型： 对一个字符数组进行封装
+//字符串是特殊的字符数组，以'\0'作为字符数组的结尾 
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+char s[101];
+
+char a[5]="abcd";
+char b[5]={'a','b','c','d','\0'};
+
+char c[5]={'a','\0','c','d','\0'};
+
+int main()
+{
+	//cin>>s;
+	//cout<<s<<endl;
+	
+	cout<<a<<endl;
+	cout<<b<<endl;
+	
+	//strlen(): 从给定的位置开始计数，数到'\0'结束 
+	cout<<strlen(a)<<endl;
+	cout<<strlen(b)<<endl; 
+	
+	cout<<c<<endl;//从给定的位置开始输出，直到'\0'结束 
+	cout<<strlen(c)<<endl;
+	
+	cout<<c+2<<endl; 
+	cout<<strlen(c+2)<<endl;
+	return 0;
+}
+
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+

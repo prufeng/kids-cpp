@@ -1,0 +1,90 @@
+函数
+
+返回值的类型 函数名(参数) {
+	语句1;
+	语句2;
+	
+	返回;
+}
+
+定义函数时要给每个参数指定类型，不能连写成int a,b,c
+要先定义，再调用
+调用的方法：函数名()  注意括号不能省略
+
+可以在函数里调用函数
+不可以在函数里定义函数
+
+例子：最大值函数
+#include <iostream>
+using namespace std;
+int max(int x, int y) {
+	if(x > y) {
+		return x;
+	}
+	else {
+		return y;
+	}
+}
+int main() {
+	cout << max(21, 1);
+	return 0;
+}
+
+函数的返回值可以是void,int,double,...
+返回值只能有一个，输入参数可以有多个且可以是不同的类型
+
+例子：数组作为函数参数
+void f(int a[], int n, char c) {
+	for(int i = 0; i < n; i++) {
+		cout << a[i] << c;
+	}
+	cout << endl;
+}
+
+一些c++库函数
+max() 返回两个参数的最大值
+abs() 返回输入参数的绝对值（cstdlib或者cmath）
+如果你定义的函数与c++库函数同名，则调用时会优先用你的
+
+例子：同名但输入参数个数不同的两个函数
+#include <iostream>
+using namespace std;
+
+int f(int x, int y) {
+	return x + y;
+}
+int f(int x, int y, int z) {
+	return x + y + z;
+}
+int main() {
+	cout << f(1, 2);
+	cout << endl;
+	cout << f(1, 2, 3);
+	
+	return 0;
+}
+
+如果函数的返回值不是void类型，那么一定要写return
+return语句是函数结束的地方
+
+传值：不能在函数内部真正地改变参数的值
+传数组：可以在函数内修改数组中的元素
+传引用：可以改变，例子：
+	void f(int &x, int y) {
+		x += y;
+	}
+
+默认参数
+void f(int a[], int n, char c=' ') {
+	for(int i = 1; i <= n; i++) {
+		cout << a[i] << c;
+	}
+	cout << endl;
+}
+调用函数时，只有最后的几个参数可以是默认值
+
+作用域
+在同一作用域中，不能有两个同名变量
+全局变量和局部变量
+全局变量默认是0
+局部变量没有默认值，初始化局部变量是个好习惯
