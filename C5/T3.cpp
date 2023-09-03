@@ -1,13 +1,20 @@
 #include<iostream>
-#include <iomanip>
 using namespace std;
 int main() {
     int n;
-    cin >> n;
-    float f = (float)n;
-    float t = (f+f-1+4)/(f*f);
-//    cout << f<<endl;
-//    cout << t;
-    cout << fixed << setprecision(1) << t*100 << "%" << endl;
-    return 0;
+//    cin >> n;
+    
+    int cnt = 0;
+    while(cnt<10) {
+//        n /= 2;		
+        cnt++;
+        if(cnt==5)continue; 
+        if(cnt==9)break;
+        cout<<cnt<<endl;
+        
+    }
+//    cout << cnt;
+
+     return 0;
 }
+
